@@ -51,7 +51,12 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 24px;
+  padding: 16px;
+}
+
+button {
+  font: inherit;
+  color: inherit;
 }
 
 #app {
@@ -59,45 +64,339 @@ body {
   max-width: 480px;
 }
 
-/* Phase 0 placeholder card — replaced by the real UI shell in Phase 1. */
-.scaffold-card {
+/* ---------------------------------------------------------------- Card */
+
+.card {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius-card);
   box-shadow: var(--shadow-card);
-  padding: 32px 28px;
-  text-align: center;
+  padding: 28px 24px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
-.scaffold-card h1 {
-  margin: 0 0 8px;
-  font-size: 1.5rem;
+.card-header h1 {
+  margin: 0;
+  font-size: 1.25rem;
   font-weight: 600;
 }
 
-.scaffold-card p {
-  margin: 0 0 4px;
+/* ------------------------------------------------------------ Field row */
+
+.field-row {
+  display: flex;
+  gap: 10px;
+  align-items: stretch;
+}
+
+.field-row-single {
+  justify-content: flex-end;
+}
+
+/* --------------------------------------------------------- Amount input */
+
+.amount-field {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--surface-alt);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-control);
+  padding: 0 14px;
+  min-width: 0;
+}
+
+.amount-field:focus-within {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+.amount-symbol {
   color: var(--text-muted);
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.amount-input {
+  flex: 1;
+  min-width: 0;
+  border: none;
+  background: transparent;
+  color: var(--text);
+  font-size: 1.25rem;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+  padding: 14px 0;
+}
+
+.amount-input:focus {
+  outline: none;
+}
+
+/* ----------------------------------------------------- Currency selector */
+
+.currency-selector {
+  position: relative;
+  flex: none;
+}
+
+.currency-selector-label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}
+
+.currency-trigger {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--surface-alt);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-control);
+  padding: 0 12px;
+  cursor: pointer;
+  transition: border-color 150ms ease-out;
+}
+
+.currency-trigger:hover {
+  border-color: var(--accent);
+}
+
+.currency-trigger:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+.currency-trigger .flag {
+  font-size: 1.125rem;
+  line-height: 1;
+}
+
+.currency-trigger .code {
+  font-weight: 600;
   font-size: 0.9375rem;
 }
 
-.scaffold-status {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  margin-top: 16px;
-  padding: 5px 12px;
-  border-radius: 100px;
-  font-size: 0.8125rem;
-  font-weight: 600;
-  color: var(--success);
-  background: color-mix(in srgb, var(--success) 12%, transparent);
+.currency-trigger svg {
+  color: var(--text-muted);
 }
 
-.scaffold-status::before {
-  content: "";
-  width: 6px;
-  height: 6px;
+.currency-dropdown {
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  width: 260px;
+  max-width: 80vw;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-control);
+  box-shadow: var(--shadow-card, 0 8px 24px rgba(0, 0, 0, 0.16));
+  padding: 10px;
+  z-index: 20;
+  animation: dropdown-in 150ms ease-out;
+}
+
+@keyframes dropdown-in {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.currency-search-field {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--surface-alt);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 10px;
+  margin-bottom: 8px;
+  color: var(--text-muted);
+}
+
+.currency-search {
+  flex: 1;
+  border: none;
+  background: transparent;
+  color: var(--text);
+  font-size: 0.875rem;
+}
+
+.currency-search:focus {
+  outline: none;
+}
+
+.currency-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-height: 240px;
+  overflow-y: auto;
+}
+
+.currency-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 8px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.875rem;
+}
+
+.currency-option:hover,
+.currency-option.selected {
+  background: var(--surface-alt);
+}
+
+.currency-option .option-code {
+  font-weight: 600;
+  flex: none;
+  width: 38px;
+}
+
+.currency-option .option-name {
+  color: var(--text-muted);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.currency-empty {
+  padding: 12px 8px;
+  color: var(--text-muted);
+  font-size: 0.875rem;
+  text-align: center;
+}
+
+/* -------------------------------------------------------------- Swap row */
+
+.swap-row {
+  display: flex;
+  justify-content: center;
+  margin: -6px 0;
+}
+
+.swap-button {
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
-  background: var(--success);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 200ms ease-out;
+}
+
+.swap-button:hover {
+  border-color: var(--accent);
+}
+
+.swap-button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* ------------------------------------------------------------- Result */
+
+.result {
+  text-align: center;
+  padding: 18px 0 4px;
+  border-top: 1px solid var(--border);
+  margin-top: 4px;
+}
+
+.result-amount {
+  font-size: 2.5rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.01em;
+  transition: opacity 150ms ease-out;
+}
+
+.result-rate {
+  margin-top: 6px;
+  font-size: 0.9375rem;
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.result-updated {
+  margin-top: 4px;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+/* ------------------------------------------------------- Status banner */
+
+.status-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  background: color-mix(in srgb, var(--error) 10%, transparent);
+  color: var(--error);
+  border: 1px solid color-mix(in srgb, var(--error) 25%, transparent);
+}
+
+.status-banner[data-tone="offline"] {
+  background: color-mix(in srgb, var(--text-muted) 12%, transparent);
+  color: var(--text-muted);
+  border-color: var(--border);
+}
+
+.status-retry {
+  flex: none;
+  background: none;
+  border: none;
+  color: inherit;
+  font-weight: 600;
+  text-decoration: underline;
+  cursor: pointer;
+  padding: 0;
+}
+
+/* ------------------------------------------------------------ Breakpoint */
+
+@media (min-width: 480px) {
+  #app {
+    width: 480px;
+  }
+
+  .card {
+    padding: 32px 28px 28px;
+  }
+
+  .result-amount {
+    font-size: 3.5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .swap-button,
+  .currency-dropdown,
+  .result-amount {
+    transition: none;
+    animation: none;
+  }
 }

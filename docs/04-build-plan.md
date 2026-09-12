@@ -2,7 +2,9 @@
 
 Phased so you can review/redirect after each stage if you want. Estimates assume "lite" scope, one engineer, AI-assisted.
 
-## Phase 0 — Project setup
+**Status:** Phase 0 merged to `main` ([PR #1](https://github.com/hansonuko/Currency-Converter/pull/1)). Phase 1 scoped, awaiting go-ahead to build.
+
+## Phase 0 — Project setup ✅ merged
 - Scaffold Vite + TypeScript project.
 - Configure `vite.config.ts` to serve dev on `localhost:3009` (`strictPort: true`).
 - Set up `package.json` scripts (`dev`, `build`, `preview`, `test`).

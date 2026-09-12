@@ -34,5 +34,5 @@ Anyone who needs a quick conversion: travelers, online shoppers, freelancers inv
 - Lighthouse score ≥ 90 on Performance, Accessibility, Best Practices.
 
 ## 7. Open decisions flagged for your review
-- **List of currencies:** proposing a curated ~30 (major world currencies) rather than the full ISO 4217 list, to keep the picker fast and simple. Confirm or expand.
+- **List of currencies:** curated rather than the full ISO 4217 list, to keep the picker fast and simple — now 46 currencies: the original ~30 major world currencies plus 16 African currencies (Nigeria, Ghana, Cameroon, Botswana, Rwanda, Kenya, Egypt, Morocco, Tanzania, Uganda, Ethiopia, Senegal/XOF region, Zambia, Namibia, Mauritius, Algeria — South Africa was already included). Resolved per direct request; expand further if needed.
 - **Stretch goals:** confirm none of these need pulling into v1.

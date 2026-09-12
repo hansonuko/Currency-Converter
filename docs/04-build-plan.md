@@ -2,7 +2,7 @@
 
 Phased so you can review/redirect after each stage if you want. Estimates assume "lite" scope, one engineer, AI-assisted.
 
-**Status:** Phase 0 merged to `main` ([PR #1](https://github.com/hansonuko/Currency-Converter/pull/1)). Phase 1 scoped, awaiting go-ahead to build.
+**Status:** Phase 0 ([PR #1](https://github.com/hansonuko/Currency-Converter/pull/1)) and Phase 1 ([PR #2](https://github.com/hansonuko/Currency-Converter/pull/2), including the expanded 46-currency list with African coverage) merged to `main`. Dev server running at `localhost:3009` for testing. Phase 2 not yet scoped.
 
 ## Phase 0 — Project setup ✅ merged
 - Scaffold Vite + TypeScript project.
@@ -11,7 +11,7 @@ Phased so you can review/redirect after each stage if you want. Estimates assume
 - Add ESLint + Prettier (minimal config) for consistency.
 - **Deliverable:** empty app running at `localhost:3009` with a blank styled page.
 
-## Phase 1 — Static UI shell
+## Phase 1 — Static UI shell ✅ merged
 - Build the markup + CSS for the full layout using the Design System tokens: card, amount input, two currency selectors, swap button, result display — with placeholder/static data.
 - Implement responsive behavior (mobile ↔ desktop) and dark-mode via `prefers-color-scheme`.
 - **Deliverable:** pixel-close, responsive, non-functional UI — good checkpoint to sign off on visual design before wiring logic.

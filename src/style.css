@@ -1,0 +1,103 @@
+/* Design tokens — mirrors docs/02-design-system.md. Keep these two in sync. */
+:root {
+  --bg: #f7f8fa;
+  --surface: #ffffff;
+  --surface-alt: #eef0f3;
+  --text: #12141a;
+  --text-muted: #6b7280;
+  --border: #e2e4e9;
+  --accent: #4f46e5;
+  --accent-contrast: #ffffff;
+  --success: #16a34a;
+  --error: #dc2626;
+
+  --radius-card: 16px;
+  --radius-control: 12px;
+  --shadow-card: 0 8px 30px rgba(0, 0, 0, 0.08);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0f1115;
+    --surface: #1a1d24;
+    --surface-alt: #232631;
+    --text: #f2f3f5;
+    --text-muted: #9aa0ac;
+    --border: #2c2f3a;
+    --accent: #818cf8;
+    --accent-contrast: #0f1115;
+    --success: #4ade80;
+    --error: #f87171;
+    --shadow-card: none;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial,
+    sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+#app {
+  width: 100%;
+  max-width: 480px;
+}
+
+/* Phase 0 placeholder card — replaced by the real UI shell in Phase 1. */
+.scaffold-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+  padding: 32px 28px;
+  text-align: center;
+}
+
+.scaffold-card h1 {
+  margin: 0 0 8px;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.scaffold-card p {
+  margin: 0 0 4px;
+  color: var(--text-muted);
+  font-size: 0.9375rem;
+}
+
+.scaffold-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 16px;
+  padding: 5px 12px;
+  border-radius: 100px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--success);
+  background: color-mix(in srgb, var(--success) 12%, transparent);
+}
+
+.scaffold-status::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--success);
+}

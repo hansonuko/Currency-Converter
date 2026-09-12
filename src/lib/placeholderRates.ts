@@ -36,6 +36,24 @@ export const PLACEHOLDER_RATES: Record<string, number> = {
   PHP: 56.2,
   VND: 24500.0,
   ILS: 3.7,
+
+  // African currencies
+  NGN: 1550.0,
+  GHS: 15.5,
+  XAF: 610.0,
+  BWP: 13.5,
+  RWF: 1300.0,
+  KES: 129.0,
+  EGP: 49.0,
+  MAD: 9.9,
+  TZS: 2500.0,
+  UGX: 3700.0,
+  ETB: 115.0,
+  XOF: 610.0,
+  ZMW: 26.0,
+  NAD: 18.6,
+  MUR: 45.5,
+  DZD: 134.5,
 };
 
 export const PLACEHOLDER_UPDATED_AT = new Date();

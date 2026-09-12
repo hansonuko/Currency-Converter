@@ -1,8 +1,10 @@
 import type { Currency } from "../types";
 
-// Curated list — ~30 major currencies rather than the full ISO 4217 set,
-// to keep the picker fast and simple. Flagged for review in
-// docs/01-blueprint.md §7 — expand here (and in the design doc) if needed.
+// Curated list — major global currencies plus broad African coverage,
+// rather than the full ISO 4217 set, to keep the picker fast and simple.
+// Originally flagged for review in docs/01-blueprint.md §7; expanded with
+// African currencies per direct request. Expand further here (and update
+// the design doc's count) if needed.
 export const CURRENCIES: Currency[] = [
   { code: "USD", name: "United States Dollar", flag: "🇺🇸", symbol: "$" },
   { code: "EUR", name: "Euro", flag: "🇪🇺", symbol: "€" },
@@ -34,6 +36,29 @@ export const CURRENCIES: Currency[] = [
   { code: "PHP", name: "Philippine Peso", flag: "🇵🇭", symbol: "₱" },
   { code: "VND", name: "Vietnamese Dong", flag: "🇻🇳", symbol: "₫" },
   { code: "ILS", name: "Israeli Shekel", flag: "🇮🇱", symbol: "₪" },
+
+  // African currencies
+  { code: "NGN", name: "Nigerian Naira", flag: "🇳🇬", symbol: "₦" },
+  { code: "GHS", name: "Ghanaian Cedi", flag: "🇬🇭", symbol: "GH₵" },
+  {
+    code: "XAF",
+    name: "Central African CFA Franc",
+    flag: "🇨🇲",
+    symbol: "FCFA",
+  },
+  { code: "BWP", name: "Botswana Pula", flag: "🇧🇼", symbol: "P" },
+  { code: "RWF", name: "Rwandan Franc", flag: "🇷🇼", symbol: "FRw" },
+  { code: "KES", name: "Kenyan Shilling", flag: "🇰🇪", symbol: "KSh" },
+  { code: "EGP", name: "Egyptian Pound", flag: "🇪🇬", symbol: "E£" },
+  { code: "MAD", name: "Moroccan Dirham", flag: "🇲🇦", symbol: "DH" },
+  { code: "TZS", name: "Tanzanian Shilling", flag: "🇹🇿", symbol: "TSh" },
+  { code: "UGX", name: "Ugandan Shilling", flag: "🇺🇬", symbol: "USh" },
+  { code: "ETB", name: "Ethiopian Birr", flag: "🇪🇹", symbol: "Br" },
+  { code: "XOF", name: "West African CFA Franc", flag: "🇸🇳", symbol: "CFA" },
+  { code: "ZMW", name: "Zambian Kwacha", flag: "🇿🇲", symbol: "ZK" },
+  { code: "NAD", name: "Namibian Dollar", flag: "🇳🇦", symbol: "$" },
+  { code: "MUR", name: "Mauritian Rupee", flag: "🇲🇺", symbol: "₨" },
+  { code: "DZD", name: "Algerian Dinar", flag: "🇩🇿", symbol: "DA" },
 ];
 
 export function findCurrency(code: string): Currency {
